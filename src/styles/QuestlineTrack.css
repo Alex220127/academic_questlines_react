@@ -1,0 +1,235 @@
+.enrollment-tracker-container {
+  font-family: 'Arial', sans-serif;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tracker-title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+  font-size: 2.5em;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 10px;
+}
+
+.filter-section {
+  margin-bottom: 30px;
+  text-align: center;
+  padding: 15px;
+  background-color: #eef7ff;
+  border-radius: 8px;
+  border: 1px solid #cce5ff;
+}
+
+.filter-section label {
+  font-weight: bold;
+  color: #555;
+  margin-right: 10px;
+}
+
+.filter-section select {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  min-width: 250px;
+}
+
+.filter-section select:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.enrollment-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 25px;
+}
+
+.enrollment-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.enrollment-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-questline-name {
+  color: #007bff;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.8em;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+.enrollment-card p {
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 1em;
+}
+
+.enrollment-card strong {
+  color: #333;
+}
+
+.stat-count {
+  font-weight: bold;
+  color: #007bff;
+  font-size: 1.1em;
+}
+
+.stat-completed {
+  font-weight: bold;
+  color: #28a745; /* Green */
+  font-size: 1.1em;
+}
+
+.stat-in-progress {
+  font-weight: bold;
+  color: #ffc107; /* Orange */
+  font-size: 1.1em;
+}
+
+.toggle-students-button {
+  background-color: #6c757d; /* Gray */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 20px;
+  align-self: center; /* Center the button */
+  width: 80%; /* Adjust width */
+}
+
+.toggle-students-button:hover {
+  background-color: #5a6268;
+  transform: translateY(-2px);
+}
+
+.student-details-expanded {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px dashed #ddd;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  padding: 15px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.student-details-expanded h3 {
+  color: #007bff;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.4em;
+}
+
+.student-details-expanded ul {
+  list-style-type: none; /* No default bullet points */
+  padding-left: 0;
+}
+
+.student-item {
+  background-color: #e9ecef;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  position: relative; /* For status badge positioning */
+}
+
+.student-item p {
+  margin-bottom: 5px;
+  font-size: 0.95em;
+}
+
+.student-status {
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.85em;
+  text-transform: capitalize;
+  margin-left: 5px;
+}
+
+.student-status.completed {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.student-status.in_progress {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.student-status.pending { /* If you decide to add pending status for overall student status */
+  background-color: #e2e3e5;
+  color: #383d41;
+}
+
+.student-node-progress {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px dashed #ced4da;
+  font-size: 0.9em;
+}
+
+.student-node-progress h4 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: #6c757d;
+  font-size: 1.1em;
+}
+
+.student-node-progress ul {
+  list-style-type: circle;
+  padding-left: 20px;
+}
+
+.node-status {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.node-status.completed {
+  color: #28a745;
+}
+
+.node-status.in_progress {
+  color: #ffc107;
+}
+
+.node-status.pending {
+  color: #6c757d;
+}
+
+.enrollment-message {
+  text-align: center;
+  padding: 50px;
+  font-size: 1.2em;
+  color: #666;
+}
+
+.enrollment-message.error {
+  color: #dc3545;
+  font-weight: bold;
+}

@@ -2,17 +2,21 @@ import { useState } from 'react'
 import { apiLogin } from '../serivces/api'
 import { jwtDecode } from 'jwt-decode'
 import getErrorMessage from '../utils/errors'
-import Modal from '../components/Modal'
 import { useNavigate } from 'react-router'
+import '../styles/Login.css'
+import { ToastContainer, toast } from 'react-toastify'
 
 export default function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [showModal, setShowModal] = useState(false)
-  const [loginFailMessage, setLoginFailMessage] = useState('')
   const navigate = useNavigate()
 
-  const login = async () => {
+  const gotoSignUp = () => {
+    navigate('/signup')
+  }
+
+  const login = async (event) => {
+    event.preventDefault()
     const payload = {
       email,
       password
@@ -21,39 +25,50 @@ export default function Login() {
     const { success, data } = await apiLogin(payload)
 
     if (success) {
-      // modal de login
       const decoded = jwtDecode(data.token)
       localStorage.setItem('token', data.token)
-      localStorage.setItem('refresh_token', data.refresh_token)
       localStorage.setItem('user', JSON.stringify(decoded))
 
       navigate('/home')
     }
 
-    setLoginFailMessage(getErrorMessage(data))
-    setShowModal(true)
-  }
-
-  const handleEmail = (e) => {
-    setEmail(e.target.value)
-  }
-
-  const handlePassword = (e) => {
-    setPassword(e.target.value)
+    toast(getErrorMessage(data))
   }
 
   return (
-    <div>
-      <Modal
-        isOpen={showModal}
-        onClose={() => setShowModal(false)}
-        title="Erro no login"
-      >
-        <p>{loginFailMessage}</p>
-      </Modal>
-      <input type="text" placeholder="Digite seu email" value={email} onChange={handleEmail} />
-      <input type="password" placeholder="Digite sua senha" value={password} onChange={handlePassword} />
-      <button type="button" onClick={login}>Entrar</button>
+    <div className="login-container">
+      <div className="login-form">
+        {/* Descomente o bloco abaixo e ajuste o caminho se for usar a imagem como logo dentro do form */}
+        {/* <div className="logo-container">
+          <img src={logo} alt="Logo do Site" />
+        </div> */}
+        <h2>Login</h2>
+        <form onSubmit={login}>
+          <div className="input-group">
+            <label htmlFor="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div className="input-group">
+            <label htmlFor="password">Senha:</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <button type="submit" className="login-button">Entrar</button>
+        </form>
+        <button className="signup-button" onClick={gotoSignUp}>Criar conta</button>
+        <ToastContainer />
+      </div>
     </div>
-  )
+  );
 }

@@ -1,0 +1,178 @@
+.professor-questline-list-container {
+  font-family: 'Arial', sans-serif;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 10px;
+}
+
+.list-title {
+  color: #333;
+  margin: 0;
+  font-size: 2.5em;
+}
+
+.create-questline-button {
+  background-color: #28a745; /* Verde vibrante */
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.create-questline-button:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+}
+
+/* Novo estilo para o botão de gerar código */
+.generate-code-button {
+  background-color: #007bff; /* Azul primário */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 15px; /* Espaçamento do conteúdo acima */
+  width: 100%; /* Ocupa a largura total do card */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.generate-code-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Estilo para a mensagem de "copiado" */
+.copied-confirmation-message {
+  background-color: #d4edda; /* Verde claro */
+  color: #155724; /* Verde escuro */
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-align: center;
+  margin: 20px auto;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: fit-content; /* Ajusta a largura ao conteúdo */
+}
+
+/* O restante do CSS permanece o mesmo */
+.questline-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 25px;
+}
+
+.questline-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  display: flex; /* Adicionado para organizar os elementos no card */
+  flex-direction: column; /* Organiza em coluna */
+  justify-content: space-between; /* Espaça o conteúdo e o botão de gerar código */
+}
+
+.questline-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  color: #007bff;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.8em;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+.questline-card p {
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 1em;
+}
+
+.questline-card strong {
+  color: #333;
+}
+
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.status-badge.active {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-badge.inactive {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.node-summary {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px dashed #ddd;
+  flex-grow: 1; /* Permite que o resumo dos nós ocupe o espaço disponível */
+  margin-bottom: 15px; /* Espaçamento entre o resumo e o botão */
+}
+
+.node-summary h3 {
+  color: #444;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.3em;
+}
+
+.node-summary ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.node-summary li {
+  margin-bottom: 5px;
+  color: #666;
+}
+
+.node-type-detail {
+  font-style: italic;
+  color: #888;
+  font-size: 0.95em;
+}
+
+.questline-list-message {
+  text-align: center;
+  padding: 50px;
+  font-size: 1.2em;
+  color: #666;
+}
+
+.questline-list-message.error {
+  color: #dc3545;
+  font-weight: bold;
+}

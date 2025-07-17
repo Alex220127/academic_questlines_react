@@ -8,7 +8,13 @@ export default function Navbar(props) {
     <div className='nav-container'>
       {props.items.map((item, index) => {
         return (
-          <div key={index} className={item.className} onClick={ () => navigate(item.goto) }>
+          <div key={index} className={item.className} onClick={ () => {
+            if (item.goto === '/') {
+              localStorage.removeItem('user')
+              localStorage.removeItem('token')
+            }
+            navigate(item.goto)
+          } }>
             {item.text}
           </div>
         )

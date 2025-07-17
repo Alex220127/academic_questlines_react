@@ -1,0 +1,132 @@
+.question-container {
+  font-family: 'Arial', sans-serif;
+  max-width: 650px;
+  margin: 30px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+.question-name {
+  text-align: center;
+  color: #2c3e50;
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.question-title {
+  font-size: 1.4em;
+  color: #34495e;
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.alternatives-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espaço entre as alternativas */
+  margin-bottom: 30px;
+}
+
+.alternative-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #f8f8f8;
+  transition: all 0.2s ease-in-out;
+  font-size: 1.1em;
+  color: #555;
+}
+
+.alternative-item:hover {
+  background-color: #eef;
+  border-color: #aaddff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.alternative-item input[type="radio"] {
+  margin-right: 15px;
+  /* Estilos básicos para o rádio, pode ser customizado mais profundamente se desejar */
+  transform: scale(1.2); /* Aumenta um pouco o tamanho do rádio */
+  cursor: pointer;
+}
+
+/* Estilos para feedback de resposta */
+.alternative-item.correct-answer {
+  background-color: #e6ffe6; /* Verde claro para resposta correta */
+  border-color: #28a745;     /* Borda verde */
+  box-shadow: 0 0 10px rgba(40, 167, 69, 0.3);
+  font-weight: bold;
+  color: #218838;
+}
+
+.alternative-item.wrong-answer {
+  background-color: #ffe6e6; /* Vermelho claro para resposta incorreta */
+  border-color: #dc3545;     /* Borda vermelha */
+  box-shadow: 0 0 10px rgba(220, 53, 69, 0.3);
+  font-weight: bold;
+  color: #c82333;
+}
+
+/* Esconde o radio button nativo para um estilo mais customizado se quiser (opcional) */
+/* .alternative-item input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+} */
+/* E então você estilizaria um elemento visual customizado para representar o radio */
+
+.question-submit-button {
+  display: block; /* Ocupa a largura total */
+  width: 100%;
+  padding: 15px 25px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.question-submit-button:hover:not(:disabled) {
+  background-color: #0056b3;
+  transform: translateY(-2px); /* Efeito de "levantar" */
+}
+
+.question-submit-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.feedback-message {
+  text-align: center;
+  margin-top: 25px;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.feedback-correct {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.feedback-wrong {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}

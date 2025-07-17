@@ -1,0 +1,158 @@
+/* Estilo para o body quando o modal está aberto, para prevenir o scroll da página. */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* O backdrop (fundo) que cobre a tela inteira. */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* O container principal do conteúdo do modal. */
+.modal-content {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
+  width: 90%;          /* Ocupa 90% da largura da tela disponível */
+  max-width: 1000px;   /* Exemplo: Define um limite MÁXIMO de 1000 pixels (ajuste como quiser) */
+  min-width: 300px;    /* Garante que não fique muito pequeno em telas minúsculas */
+
+  /* --- AJUSTES PARA O FOOTER APARECER E PARA ROLAGEM --- */
+  height: auto;        /* A altura do modal se ajustará ao conteúdo */
+  max-height: 90vh;    /* O modal não será maior que 90% da altura da tela */
+  /* --- FIM DOS AJUSTES --- */
+
+  display: flex;
+  flex-direction: column; /* Essencial para o flex-grow do body funcionar */
+  animation: slideIn 0.4s ease-out;
+}
+
+/* Cabeçalho do modal. */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  flex-shrink: 0; /* Garante que o header não encolha */
+}
+
+.modal-title {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.modal-close-button {
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  line-height: 1;
+  color: #888;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.modal-close-button:hover {
+  color: #000;
+}
+
+/* Corpo do modal, onde o conteúdo dinâmico (children) entra. */
+.modal-body {
+  flex-grow: 1;      /* Permite que o corpo cresça e ocupe o espaço disponível */
+  color: #555;
+  line-height: 1.6;
+
+  /* --- AJUSTE PARA ROLAGEM DO CONTEÚDO --- */
+  overflow-y: auto;  /* Adiciona uma barra de rolagem VERTICAL se o conteúdo for muito grande */
+  /* --- FIM DOS AJUSTES --- */
+
+  padding-right: 10px; /* Um pequeno padding para a barra de rolagem não ficar grudada no texto */
+}
+
+/* Estilo para o IFRAME dentro do corpo do modal. */
+.modal-body iframe {
+  width: 100%;       /* Faz o vídeo ocupar 100% da largura do .modal-body */
+  height: auto;      /* A altura será ajustada automaticamente */
+  aspect-ratio: 16 / 9; /* Mantém a proporção de um vídeo widescreen (16 por 9) */
+  border: none;      /* Remove qualquer borda padrão */
+}
+
+
+/* Rodapé do modal. */
+.modal-footer {
+  display: flex;
+  justify-content: flex-end; /* Alinha os botões à direita */
+  gap: 10px; /* Espaço entre os botões */
+  border-top: 1px solid #e5e5e5;
+  padding-top: 15px;
+  margin-top: 20px;
+  flex-shrink: 0; /* Garante que o footer não encolha e permaneça visível */
+}
+
+/* Estilos para os botões do rodapé. */
+.button-secondary,
+.button-primary {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.button-secondary {
+  background-color: #f0f0f0;
+  border-color: #ccc;
+  color: #333;
+}
+
+.button-secondary:hover {
+  background-color: #e0e0e0;
+  border-color: #bbb;
+}
+
+.button-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.button-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

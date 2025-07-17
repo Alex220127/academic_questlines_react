@@ -1,0 +1,173 @@
+/* Estilos gerais para o container da loja */
+.teacher-store-container {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9fafb;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Estilos do cabeçalho */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.title {
+  font-size: 28px;
+  color: #1f2937;
+  font-weight: 700;
+}
+
+.create-trail-button {
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.create-trail-button:hover {
+  background-color: #4338ca;
+  transform: translateY(-2px);
+}
+
+/* Container da lista de itens */
+.item-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+/* Card individual de cada item */
+.item-card {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.item-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Indicador de status (ativo/inativo) */
+.status-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+}
+
+.status-indicator.active {
+  background-color: #10b981;
+  /* Verde */
+}
+
+.status-indicator.inactive {
+  background-color: #ef4444;
+  /* Vermelho */
+}
+
+/* Estilo do ícone */
+.item-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+  height: 60px;
+  background-color: #f3f4f6;
+  border-radius: 50%;
+  margin-left: 20px;
+  /* Espaço após o indicador de status */
+  margin-right: 20px;
+}
+
+.item-icon {
+  font-size: 28px;
+  color: #4f46e5;
+  /* Caso a string "icon" seja um placeholder para uma imagem, use background-image */
+}
+
+
+/* Detalhes do item */
+.item-details {
+  flex-grow: 1;
+}
+
+.item-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 5px 0;
+}
+
+.item-price,
+.item-redeem-info,
+.item-creation-date {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 4px 0;
+}
+
+/* Seção de ações (botões) */
+.item-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.action-button {
+  border: 1px solid #d1d5db;
+  background-color: #ffffff;
+  color: #374151;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.action-button:hover {
+  background-color: #f9fafb;
+  border-color: #9ca3af;
+}
+
+.edit-button:hover {
+  color: #4f46e5;
+  border-color: #4f46e5;
+}
+
+.delete-button:hover {
+  color: #ef4444;
+  border-color: #ef4444;
+}
+
+.loading-message,
+.empty-message {
+  text-align: center;
+  padding: 40px;
+  font-size: 18px;
+  color: #6b7280;
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px dashed #d1d5db;
+}

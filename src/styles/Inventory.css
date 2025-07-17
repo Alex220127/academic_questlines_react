@@ -1,0 +1,274 @@
+/* UserInventory.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Press+Start+2P&display=swap');
+
+.inventory-container {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: var(--card-bg);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.inventory-container::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, var(--primary-color) 0%, rgba(0, 123, 255, 0) 70%);
+  border-radius: 50%;
+  opacity: 0.1;
+  animation: rotateBlob 20s infinite linear;
+  z-index: 0;
+}
+
+.inventory-container::after {
+  content: '';
+  position: absolute;
+  bottom: -50px;
+  right: -50px;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, var(--secondary-color) 0%, rgba(40, 167, 69, 0) 70%);
+  border-radius: 50%;
+  opacity: 0.1;
+  animation: rotateBlob 25s infinite reverse linear;
+  z-index: 0;
+}
+
+@keyframes rotateBlob {
+  from { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.05); }
+  to { transform: rotate(360deg) scale(1); }
+}
+
+.inventory-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3.2em;
+  color: var(--primary-color);
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 1;
+}
+
+.inventory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.inventory-item {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.inventory-item:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.inventory-item.used {
+  opacity: 0.7;
+  filter: grayscale(80%);
+  pointer-events: none; /* Desabilita interações para itens usados */
+}
+
+.item-icon-wrapper {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.item-icon {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.inventory-item:hover .item-icon {
+  transform: scale(1.1);
+}
+
+.item-used-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--used-item-overlay-bg);
+  color: var(--text-light);
+  font-weight: bold;
+  font-size: 1.2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Press Start 2P', cursive;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  transform: rotate(-15deg) scale(1.1);
+  opacity: 0;
+  animation: usedFadeIn 0.5s ease-out forwards;
+}
+
+@keyframes usedFadeIn {
+  from { opacity: 0; transform: rotate(-15deg) scale(0.8); }
+  to { opacity: 1; transform: rotate(-15deg) scale(1); }
+}
+
+
+.item-name {
+  font-size: 1.5em;
+  margin-bottom: 8px;
+  color: var(--text-dark);
+  font-weight: 600;
+  min-height: 2.2em; /* Ajustado para acomodar nomes mais longos */
+  line-height: 1.1;
+}
+
+/* Novo estilo para o preço no inventário (se vier da loja) */
+.item-price {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 10px;
+  font-style: italic; /* Para indicar que é o preço original */
+}
+
+/* Novo estilo para a data de resgate */
+.item-redeemed-date {
+  font-size: 0.85em;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+
+.item-use-button {
+  background-color: var(--secondary-color);
+  color: var(--text-light);
+  border: none;
+  border-radius: 8px;
+  padding: 12px 25px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  width: 80%;
+  max-width: 200px;
+}
+
+.item-use-button:hover:not(:disabled) { /* Hover apenas para botões não desabilitados */
+  background-color: #218838;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(40, 167, 69, 0.25);
+}
+
+.item-use-button.used-button {
+  background-color: var(--used-item-text-color); /* Cinza para botão desabilitado */
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Estados de Carregamento e Erro (reutilizados) */
+.loading-state, .error-state, .empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+.loader {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid var(--primary-color);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+  margin-top: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+/* Responsividade (reutilizada) */
+@media (max-width: 768px) {
+  .inventory-container {
+    margin: 30px 15px;
+    padding: 20px;
+  }
+  .inventory-title {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+  }
+  .inventory-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  .inventory-item {
+    padding: 15px;
+  }
+  .item-name {
+    font-size: 1.3em;
+  }
+  .item-price, .item-redeemed-date {
+    font-size: 0.9em;
+  }
+  .item-use-button {
+    padding: 10px 20px;
+    font-size: 0.95em;
+  }
+}
+
+@media (max-width: 480px) {
+  .inventory-title {
+    font-size: 2em;
+    margin-bottom: 25px;
+  }
+  .inventory-grid {
+    grid-template-columns: 1fr;
+  }
+  .inventory-item {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}

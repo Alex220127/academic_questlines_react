@@ -1,0 +1,127 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Garante que o contêiner ocupa a altura total da viewport */
+  background-color: #f4f4f4; /* Cor de fundo geral */
+}
+
+.login-form {
+  background-color: #ffffff; /* Fundo branco para o formulário */
+  padding: 30px;
+  border-radius: 8px; /* Cantos arredondados */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  width: 100%;
+  max-width: 400px; /* Largura máxima para o formulário */
+  text-align: center;
+  box-sizing: border-box; /* Inclui padding e borda no cálculo da largura */
+}
+
+.login-form h2 {
+  margin-bottom: 25px;
+  color: #333; /* Cor do título */
+  font-size: 28px;
+}
+
+.logo-container {
+  margin-bottom: 20px;
+}
+
+.logo-container img {
+  max-width: 150px; /* Ajuste o tamanho máximo do logo */
+  height: auto;
+  border-radius: 50%; /* Se quiser um logo circular */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.input-group {
+  margin-bottom: 20px;
+  text-align: left; /* Alinha o label e o input à esquerda */
+}
+
+.input-group label {
+  display: block; /* Cada label em uma nova linha */
+  margin-bottom: 8px;
+  color: #555; /* Cor do label */
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd; /* Borda mais suave */
+  border-radius: 4px;
+  box-sizing: border-box; /* Garante que o padding não aumente a largura */
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+  border-color: #007bff; /* Borda azul ao focar */
+  outline: none; /* Remove o contorno padrão do navegador */
+}
+
+.login-button {
+  background-color: #007bff; /* Cor principal do botão */
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  width: 100%;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.login-button:hover {
+  background-color: #0056b3; /* Cor mais escura ao passar o mouse */
+  transform: translateY(-2px); /* Efeito de "levantar" o botão */
+}
+
+.login-button:active {
+  background-color: #004080; /* Cor ainda mais escura ao clicar */
+  transform: translateY(0);
+}
+
+.signup-button {
+  background-color: gray; /* Cor principal do botão */
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 18px;
+  width: 100%;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.signup-button:hover {
+  background-color: gray; /* Cor mais escura ao passar o mouse */
+  transform: translateY(-2px); /* Efeito de "levantar" o botão */
+}
+
+.signup-button:active {
+  background-color: #004080; /* Cor ainda mais escura ao clicar */
+  transform: translateY(0);
+}
+
+/* Responsividade básica */
+@media (max-width: 600px) {
+  .login-form {
+    margin: 20px;
+    padding: 20px;
+  }
+  .login-form h2 {
+    font-size: 24px;
+  }
+  .login-button {
+    font-size: 16px;
+    padding: 10px 15px;
+  }
+}

@@ -1,0 +1,142 @@
+.container {
+  padding: 24px;
+  font-family: sans-serif;
+}
+
+.titulo {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.badge {
+  background-color: #f1f1f1;
+  color: #333;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 6px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background-color: #4caf50;
+  transition: width 0.3s ease;
+}
+
+.progresso-texto {
+  font-size: 14px;
+  color: #555;
+}
+
+.botao {
+  align-self: flex-end;
+  padding: 8px 16px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.botao:hover {
+  background-color: #1e40af;
+}
+
+.modal-input-group {
+  display: flex;
+  gap: 15px; /* Espaçamento maior entre elementos */
+  margin-bottom: 25px;
+  align-items: center;
+  justify-content: center; /* Centraliza o grupo */
+}
+
+.modal-input {
+  flex-grow: 1; /* Permite que o input cresça */
+  padding: 14px 18px;
+  border: 2px solid #e0e0e0; /* Borda um pouco mais forte */
+  border-radius: 8px; /* Cantos mais arredondados para o input */
+  font-size: 17px;
+  color: #333;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal-input::placeholder {
+  color: #aaa;
+}
+
+.modal-input:focus {
+  border-color: #007bff; /* Borda azul ao focar */
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2); /* Sombra suave ao focar */
+}
+
+/* Estilos para o botão de entrar (dentro do modal) */
+.modal-enter-button {
+  background-color:#004080; /* Verde vibrante */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 25px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 10px rgba(40, 167, 69, 0.2); /* Sombra para o botão */
+}
+
+.modal-enter-button:hover {
+  background-color: #1c6dbd; /* Verde mais escuro ao passar o mouse */
+  transform: translateY(-3px); /* Efeito de "levantar" */
+  box-shadow: 0 6px 15px rgba(40, 167, 69, 0.3);
+}
+
+.modal-enter-button:active {
+  transform: translateY(0);
+  background-color: #1c6dbd;
+  box-shadow: 0 2px 5px rgba(40, 167, 69, 0.2);
+}

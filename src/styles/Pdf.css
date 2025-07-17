@@ -1,0 +1,168 @@
+/* PdfActivity.css - AJUSTADO */
+
+.pdf-activity-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 900px; /* Largura máxima do conteúdo */
+  margin: 40px auto; /* Centraliza na página com margem superior/inferior */
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.pdf-activity-title {
+  font-size: 2.5em;
+  color: #0056b3; /* Um tom de azul para o título */
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* NOVO AJUSTE: Usando a técnica de "Aspect Ratio Box" */
+.pdf-viewer-wrapper {
+  position: relative; /* Necessário para o posicionamento absoluto do iframe */
+  width: 100%;
+  /* Define o aspect ratio do container.
+     Exemplos:
+     Para 4:3 -> padding-bottom: 75%; (3 / 4 * 100)
+     Para 16:9 -> padding-bottom: 56.25%; (9 / 16 * 100)
+     Para A4 (retrato, aprox. 1:1.41) -> padding-bottom: 141.4%;
+     Para A4 (paisagem, aprox. 1.41:1) -> padding-bottom: 70.7%;
+     Escolha o que melhor se adapta aos seus PDFs ou teste valores.
+     Comece com 75% se não tiver certeza, ou ajuste visualmente.
+  */
+  padding-bottom: 75%; /* Exemplo: Aspect ratio 4:3. AJUSTE ESTE VALOR CONFORME SEU PDF! */
+  height: 0; /* Colapsa a altura para que padding-bottom defina */
+  overflow: hidden; /* Esconde qualquer coisa que vaze */
+
+  border: 2px solid #e0e0e0; /* Borda ao redor do visualizador */
+  border-radius: 8px;
+  background-color: #fff;
+  margin-bottom: 30px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05); /* Sombra interna sutil */
+}
+
+.pdf-viewer {
+  position: absolute; /* Posiciona o iframe para preencher o wrapper */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.no-pdf-message {
+  text-align: center;
+  padding: 50px 20px;
+  color: #777;
+  font-size: 1.1em;
+}
+
+.no-pdf-message a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.no-pdf-message a:hover {
+  text-decoration: underline;
+}
+
+.pdf-activity-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Espaçamento entre os botões */
+  width: 100%;
+  margin-top: 20px;
+}
+
+.btn-mark-complete,
+.btn-next-activity {
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  min-width: 200px; /* Largura mínima para botões */
+}
+
+.btn-mark-complete {
+  background-color: #28a745; /* Verde para 'Concluída' */
+  color: white;
+  box-shadow: 0 4px 10px rgba(40, 167, 69, 0.2);
+}
+
+.btn-mark-complete:hover {
+  background-color: #218838;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(40, 167, 69, 0.3);
+}
+
+.btn-mark-complete:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.btn-next-activity {
+  background-color: #007bff; /* Azul para 'Próxima Atividade' */
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+}
+
+.btn-next-activity:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3);
+}
+
+.btn-next-activity:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .pdf-activity-container {
+    margin: 20px;
+    padding: 20px;
+  }
+  .pdf-activity-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  /* Ajuste a altura do visualizador para telas menores (mantendo o aspect ratio) */
+  .pdf-viewer-wrapper {
+    /* Mantenha o padding-bottom em % para responsividade do aspect ratio */
+    /* Ex: Se o padding-bottom de 75% for muito alto, você pode ajustá-lo aqui
+       Ou se quiser uma altura mínima em mobile: */
+    /* min-height: 350px; */
+  }
+  .pdf-activity-actions {
+    flex-direction: column; /* Empilha os botões */
+    gap: 15px;
+  }
+  .btn-mark-complete,
+  .btn-next-activity {
+    width: 100%; /* Botões ocupam a largura total */
+    min-width: unset; /* Remove largura mínima */
+  }
+}
+
+@media (max-width: 480px) {
+  .pdf-activity-container {
+    padding: 15px;
+  }
+  .pdf-activity-title {
+    font-size: 1.8em;
+  }
+  .btn-mark-complete,
+  .btn-next-activity {
+    font-size: 1em;
+    padding: 12px 20px;
+  }
+}

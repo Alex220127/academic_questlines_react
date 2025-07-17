@@ -6,15 +6,7 @@ export default function Home() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    const token = localStorage.getItem('token')
-
-    if (!token) {
-      navigate('/')
-
-      return
-    }
-
-    navigate('/home')
+    navigate('/login')
 
     // ver se é valido
     // se invalido tenta renovar o token
